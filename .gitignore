@@ -1,0 +1,37 @@
+# Dependencies
+vendor
+composer.json
+composer.phar
+
+# App Configuration
+.env
+
+# Log files
+*.log
+*.tmp
+
+# Tests (PHPUnit)
+phpunit.xml
+.phpunit.result.cache
+coverage
+
+# IDE (PHPStorm)
+.idea
+
+
+## OS ##
+
+# Linux
+*~
+*.swp
+# KDE
+.directory
+
+# Windows
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Mac OS
+.DS_Store*
+._*
