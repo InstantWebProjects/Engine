@@ -17,13 +17,6 @@ class Database
 
     private static ?PDOStatement$stmt = null;
 
-    /**
-     * Establishes a connection.
-     *
-     * @param array $dbDetails The database details
-     *
-     * @return void
-     */
     public static function connect(array $dbDetails = []): void
     {
         try {
