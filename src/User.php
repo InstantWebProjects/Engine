@@ -47,11 +47,6 @@ class User
         return substr(md5(uniqid($prefix, true)), 0, static::HASH_LENGTH);
     }
 
-    public static function getStripePaymentLink(string $hash): string
-    {
-        return site_url("s/$hash");
-    }
-
     public static function getPaypalPaymentLink(string $hash): string
     {
         return site_url("p/$hash");

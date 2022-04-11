@@ -88,6 +88,11 @@ final class Database
         return static::$pdo->quote($string);
     }
 
+    public static function lastInsertId(): string
+    {
+        return (string)static::$pdo->lastInsertId();
+    }
+
     /**
      * It's a static class, to prevent instantiation of the class
      */
