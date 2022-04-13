@@ -16,12 +16,17 @@ class Session
      *
      * @param string $key The key
      * @param string|int $value The value
-     *
-     * @return void
      */
     public static function set(string $key, $value): void
     {
         $_SESSION[$key] = $value;
+    }
+
+    public static function sets(array $data): void
+    {
+        foreach ($data as $key => $value) {
+            self::set($key, $value);
+        }
     }
 
     public static function get(string $sessionName)
@@ -36,8 +41,6 @@ class Session
 
     /**
      * Destroys the session.
-     *
-     * @return void
      */
     public static function destroy(): void
     {

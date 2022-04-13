@@ -11,30 +11,34 @@ namespace InstantWeb\Engine;
 
 class User
 {
-    public const STRIPE_LINK_METHOD_NAME = 'getStripePaymentLink';
-    public const PAYPAL_LINK_METHOD_NAME = 'getPaypalPaymentLink';
+    public const USER_ID_SESSION_NAME = 'userId';
+    public const EMAIL_SESSION_NAME = 'email';
 
     private const HASH_LENGTH = 4; // When get more user, will need to increase it!
 
     public static function setAuth(int $userId, string $email): void
     {
-        Session::set('userId', $userId);
-        Session::set('email', $email);
+        Session::sets(
+            [
+                static::USER_ID_SESSION_NAME => $userId,
+                static::EMAIL_SESSION_NAME => $email
+            ]
+        );
     }
 
     public static function isLoggedIn(): bool
     {
-        return (bool)(Session::get('userId') && Session::get('email'));
+        return (bool)(Session::exist(static::USER_ID_SESSION_NAME));
     }
 
     public static function getId(): int
     {
-        return (int)Session::get('userId');
+        return (int)Session::get(static::USER_ID_SESSION_NAME);
     }
 
     public static function getEmail(): string
     {
-        return Session::get('email');
+        return Session::get(static::EMAIL_SESSION_NAME);
     }
 
     /**
@@ -45,10 +49,5 @@ class User
         $prefix = (string)mt_rand();
 
         return substr(md5(uniqid($prefix, true)), 0, static::HASH_LENGTH);
-    }
-
-    public static function getPaypalPaymentLink(string $hash): string
-    {
-        return site_url("p/$hash");
     }
 }
