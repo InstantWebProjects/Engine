@@ -1,0 +1,16 @@
+{
+    "name": "instantweb/engine",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "InstantApp\\Engine\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Pierre-Henry Soria",
+            "email": "hi@ph7.me"
+        }
+    ],
+    "require": {}
+}
