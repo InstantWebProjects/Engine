@@ -9,6 +9,9 @@ declare(strict_types=1);
 
 namespace InstantWeb\Engine;
 
+use Symfony\Component\Templating\Loader\FilesystemLoader;
+use Symfony\Component\Templating\PhpEngine;
+
 final class View
 {
     private const VIEW_EXTENSION = '.html.php';
