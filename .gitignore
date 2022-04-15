@@ -1,6 +1,5 @@
 # Dependencies
 vendor
-composer.lock
 composer.phar
 
 # App Configuration
