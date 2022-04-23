@@ -19,7 +19,7 @@ final class View
 
     public static function render(string $template, string $title = '', array $context = []): string
     {
-        $filesystemLoader = new FilesystemLoader(__DIR__ . '/views/%name%');
+        $filesystemLoader = new FilesystemLoader(dirname(__DIR__, 3)  . '/views/%name%');
 
         $templating = new PhpEngine(new TemplateNameParser(), $filesystemLoader);
         $templating->set(new SlotsHelper());
